@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IshtiyaaqRajah — Terminal Portfolio</title>
+  <meta name="description" content="Web Developer & Ethical Hacker portfolio in a terminal-style interface." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Monospace font -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Accessibility skip link -->
+  <a class="skip-link" href="#prompt-input">Skip to command prompt</a>
+
+  <main id="app" aria-label="Terminal Portfolio">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">ish@portfolio</span>
+      </div>
+      <div class="controls">
+        <button id="btn-theme" class="btn" aria-label="Toggle theme">theme</button>
+        <button id="btn-clear" class="btn" aria-label="Clear terminal">clear</button>
+        <button id="btn-help" class="btn" aria-label="Show help">help</button>
+      </div>
+    </header>
+
+    <section class="terminal" role="region" aria-live="polite" aria-atomic="false">
+      <div class="screen" id="screen" tabindex="0" aria-label="Terminal output">
+        <!-- Boot banner will render here -->
+      </div>
+
+      <form id="prompt" autocomplete="off" aria-label="Command input">
+        <label for="prompt-input" class="prompt-label">
+          <span class="user">ishtiyaaq</span>
+          <span class="at">@</span>
+          <span class="host">portfolio</span>
+          <span class="colon">:</span>
+          <span class="tilde">~</span>
+          <span class="dollar">$</span>
+        </label>
+        <input
+          id="prompt-input"
+          name="prompt-input"
+          type="text"
+          inputmode="text"
+          spellcheck="false"
+          aria-describedby="prompt-help"
+          placeholder="type a command (help to list)"
+        />
+        <span class="cursor" aria-hidden="true"></span>
+        <div id="prompt-help" class="sr-only">
+          Type commands like help, about, skills, projects, contact, ls, theme, clear, exit.
+        </div>
+      </form>
+    </section>
+
+    <footer class="statusbar" aria-label="Status bar">
+      <div class="status-left">
+        <span>Web Developer</span> · <span>Ethical Hacker</span>
+      </div>
+      <div class="status-right">
+        <span id="status-time"></span>
+        <span> · Potchefstroom, South Africa</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal for project details -->
+  <dialog id="project-modal" aria-label="Project details">
+    <div class="modal-header">
+      <h3 id="modal-title">Project</h3>
+      <button id="modal-close" class="btn">close</button>
+    </div>
+    <div id="modal-body"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
